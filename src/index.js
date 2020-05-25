@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Busca from "./pages/Busca";
+import Login from "./pages/Login";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Busca />
+    <Login />
   </React.StrictMode>,
   document.getElementById("root")
 );
