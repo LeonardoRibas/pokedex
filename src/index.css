@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.buscaContainer {
+  display: grid; 
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.buscaContainer * {
+  text-align: center;
+  
+}
