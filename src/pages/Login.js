@@ -1,4 +1,7 @@
 import React from "react";
+import axios from "axios";
+
+const User = React.createContext(null);
 
 class Login extends React.Component {
   usernameInput = React.createRef();
@@ -12,7 +15,18 @@ class Login extends React.Component {
   };
 
   sendUsername = (username) => {
-    // mandar username para endpoint de login na API
+    axios
+      .post("https://pokedex20201.herokuapp.com/users", { username: username })
+      .then((res) => {
+        if (res.status === 201) {
+          localStorage.setItem("user", username);
+        }
+      })
+      .catch((err) => {
+        if (err.response.status === 422) {
+          localStorage.setItem("user", username);
+        }
+      });
   };
 
   render() {
