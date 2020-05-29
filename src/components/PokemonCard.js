@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-import { FavoritePokemonContext } from "../pages/Catalog";
+import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 import styles from "./PokemonCard.module.css";
 
