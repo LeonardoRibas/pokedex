@@ -8,14 +8,23 @@ import styles from "./Catalog.module.css";
 
 const Catalog = () => {
   const [pokemons, setPokemon] = useState([]);
+  const userName = localStorage.getItem("user");
+  const [favoritePokemons, setFavoritePokemons] = useState([]);
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    axios
+      .get(`https://pokedex20201.herokuapp.com/users/${userName}`)
+      .then((res) => {
+        setFavoritePokemons(res.data.pokemons);
+      });
+  }, []);
 
   useEffect(() => {
     axios
       .get(`https://pokedex20201.herokuapp.com/pokemons?page=${page}`)
       .then((res) => {
         setPokemon(res.data.data);
-        console.log(res.data);
       });
   }, [page]);
 
@@ -25,6 +34,8 @@ const Catalog = () => {
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
+            id={pokemon.id}
+            favorites={favoritePokemons}
             img={pokemon.image_url}
             name={pokemon.name}
             number={pokemon.number}
