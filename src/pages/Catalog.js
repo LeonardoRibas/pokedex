@@ -1,17 +1,16 @@
-import React, { useState, useEffect, createContext } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-
 import PokemonCard from "../components/PokemonCard";
-
 import styles from "./Catalog.module.css";
 
-export const FavoritePokemonContext = createContext();
+import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 const Catalog = () => {
+  const { favoritePokemons, setFavoritePokemons } = useContext(
+    FavoritePokemonContext
+  );
   const [pokemons, setPokemon] = useState([]);
   const userName = localStorage.getItem("user");
-  const [favoritePokemons, setFavoritePokemons] = useState([]);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
