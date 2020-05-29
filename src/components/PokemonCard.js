@@ -1,27 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+
+import { FavoritePokemonContext } from "../pages/Catalog";
 
 import styles from "./PokemonCard.module.css";
 
 const PokemonCard = (props) => {
+  const { favoritePokemons, setFavoritePokemons } = useContext(
+    FavoritePokemonContext
+  );
+
   const userName = localStorage.getItem("user");
 
-  const [isFavorite, setIsFavorite] = useState([]);
+  const [isFavorite, setIsFavorite] = useState();
 
   useEffect(() => {
-    const isPokemonInFavorites = props.favorites.some(
+    const isPokemonInFavorites = favoritePokemons.some(
       (favPokemon) => favPokemon.name === props.name
     );
     setIsFavorite(isPokemonInFavorites);
-  }, [props]);
+  }, [favoritePokemons]);
 
   const handleFavorite = (pokemonName) => {
     axios
       .post(
         `https://pokedex20201.herokuapp.com/users/${userName}/starred/${pokemonName}`
       )
-      .then(() => {
-        setIsFavorite(true);
+      .then((res) => {
+        setFavoritePokemons(res.data.pokemons);
       });
   };
 
@@ -30,8 +36,8 @@ const PokemonCard = (props) => {
       .delete(
         `https://pokedex20201.herokuapp.com/users/${userName}/starred/${pokemonName}`
       )
-      .then(() => {
-        setIsFavorite(false);
+      .then((res) => {
+        setFavoritePokemons(res.data.pokemons);
       });
   };
 
