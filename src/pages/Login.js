@@ -1,46 +1,44 @@
 import React from "react";
 import axios from "axios";
 
-class Login extends React.Component {
-  usernameInput = React.createRef();
+const Login = (props) => {
+  const usernameInput = React.createRef();
 
-  keyPressed = (e) => {
+  function keyPressed(e) {
     if (e.key === "Enter") {
-      let username = this.usernameInput.current.value;
-      this.usernameInput.current.value = "";
-      this.sendUsername(username);
+      let username = usernameInput.current.value;
+      usernameInput.current.value = "";
+      sendUsername(username);
     }
-  };
+  }
 
-  sendUsername = (username) => {
+  const sendUsername = (username) => {
     axios
       .post("https://pokedex20201.herokuapp.com/users", { username: username })
       .then((res) => {
         if (res.status === 201) {
           localStorage.setItem("user", username);
-          this.props.history.push("/catalog");
+          props.history.push("/catalog");
         }
       })
       .catch((err) => {
         if (err.response.status === 422) {
           localStorage.setItem("user", username);
-          this.props.history.push("/catalog");
+          props.history.push("/catalog");
         }
       });
   };
 
-  render() {
-    return (
-      <div className="loginContainer">
-        <input
-          type="text"
-          ref={this.usernameInput}
-          onKeyPress={this.keyPressed}
-          placeholder="Username"
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="loginContainer">
+      <input
+        type="text"
+        ref={usernameInput}
+        onKeyPress={keyPressed}
+        placeholder="Username"
+      />
+    </div>
+  );
+};
 
 export default Login;
