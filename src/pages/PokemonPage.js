@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-class Pokemon extends React.Component {
+class PokemonPage extends React.Component {
   state = {
     id: undefined,
     name: undefined,
@@ -37,4 +37,4 @@ class Pokemon extends React.Component {
   }
 }
 
-export default Pokemon;
+export default PokemonPage;

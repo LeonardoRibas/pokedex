@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-const Login = (props) => {
+const LoginPage = (props) => {
   const usernameInput = React.createRef();
 
   function keyPressed(e) {
@@ -41,4 +41,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default LoginPage;
