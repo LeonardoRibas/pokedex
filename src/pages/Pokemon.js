@@ -21,17 +21,17 @@ class Pokemon extends React.Component {
       .get(`https://pokedex20201.herokuapp.com/pokemons/${name}`)
       .then((res) => {
         this.setState(res.data);
-        console.log(this.state);
       });
   }
 
   render() {
     return (
       <div className="pokemon">
+        <img src={this.state.image_url} alt="" />
         <div className="pokemonName">{this.state.name}</div>
         <div className="pokemonKind">{this.state.kind}</div>
         <div className="pokemonWeight">{this.state.weight}</div>
-        <img src={this.state.image_url} alt="" />
+        <div className="pokemonHeight">{this.state.height}</div>
       </div>
     );
   }
