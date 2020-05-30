@@ -30,38 +30,34 @@ const Catalog = () => {
   }, [page]);
 
   return (
-    <FavoritePokemonContext.Provider
-      value={{ favoritePokemons, setFavoritePokemons }}
-    >
-      <div className={styles.container}>
-        <div className={styles.catalog}>
-          {pokemons.map((pokemon) => (
-            <PokemonCard
-              key={pokemon.id}
-              id={pokemon.id}
-              img={pokemon.image_url}
-              name={pokemon.name}
-              number={pokemon.number}
-              kind={pokemon.kind}
-              height={pokemon.height}
-              weight={pokemon.weight}
-            />
-          ))}
-        </div>
-        <div className={styles.buttons}>
-          <button
-            onClick={() => {
-              if (page > 1) {
-                setPage(page - 1);
-              }
-            }}
-          >
-            Página anterior
-          </button>
-          <button onClick={() => setPage(page + 1)}>Próxima página</button>
-        </div>
+    <div className={styles.container}>
+      <div className={styles.catalog}>
+        {pokemons.map((pokemon) => (
+          <PokemonCard
+            key={pokemon.id}
+            id={pokemon.id}
+            img={pokemon.image_url}
+            name={pokemon.name}
+            number={pokemon.number}
+            kind={pokemon.kind}
+            height={pokemon.height}
+            weight={pokemon.weight}
+          />
+        ))}
       </div>
-    </FavoritePokemonContext.Provider>
+      <div className={styles.buttons}>
+        <button
+          onClick={() => {
+            if (page > 1) {
+              setPage(page - 1);
+            }
+          }}
+        >
+          Página anterior
+        </button>
+        <button onClick={() => setPage(page + 1)}>Próxima página</button>
+      </div>
+    </div>
   );
 };
 
