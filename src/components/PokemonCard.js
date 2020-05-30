@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 import styles from "./PokemonCard.module.css";
 
 const PokemonCard = (props) => {
+  const history = useHistory();
+
   const { favoritePokemons, setFavoritePokemons } = useContext(
     FavoritePokemonContext
   );
+
+  function handleClick(e) {
+    history.push(`/pokemon/${props.name}`);
+  }
 
   const userName = localStorage.getItem("user");
 
@@ -44,7 +51,7 @@ const PokemonCard = (props) => {
   return (
     <div className={styles.card}>
       <h1>{props.name}</h1>
-      <img src={props.img} alt={props.name} />
+      <img onClick={handleClick} src={props.img} alt={props.name} />
       <p>{props.kind}</p>
       {isFavorite ? (
         <button onClick={() => handleUnfavorite(props.name)}>
