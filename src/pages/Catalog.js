@@ -1,21 +1,31 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-
 import PokemonCard from "../components/PokemonCard";
-
 import styles from "./Catalog.module.css";
 
+import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
+
 const Catalog = () => {
+  const { favoritePokemons, setFavoritePokemons } = useContext(
+    FavoritePokemonContext
+  );
   const [pokemons, setPokemon] = useState([]);
+  const userName = localStorage.getItem("user");
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    axios
+      .get(`https://pokedex20201.herokuapp.com/users/${userName}`)
+      .then((res) => {
+        setFavoritePokemons(res.data.pokemons);
+      });
+  }, []);
 
   useEffect(() => {
     axios
       .get(`https://pokedex20201.herokuapp.com/pokemons?page=${page}`)
       .then((res) => {
         setPokemon(res.data.data);
-        console.log(res.data);
       });
   }, [page]);
 
@@ -25,6 +35,7 @@ const Catalog = () => {
         {pokemons.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
+            id={pokemon.id}
             img={pokemon.image_url}
             name={pokemon.name}
             number={pokemon.number}

@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  align-items: center;
+  justify-content: center;
+}
