@@ -1,40 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-class PokemonPage extends React.Component {
-  state = {
-    id: undefined,
-    name: undefined,
-    height: undefined,
-    image_url: undefined,
-    kind: undefined,
-    number: undefined,
-    weight: undefined,
-  };
+const PokemonPage = (props) => {
+  const [pokemon, setPokemon] = useState({});
 
-  componentDidMount() {
-    this.fetchPokemon();
-  }
-  fetchPokemon() {
-    let name = this.props.match.params.name;
+  const fetchPokemon = () => {
+    let name = props.match.params.name;
+    console.log(props);
     axios
       .get(`https://pokedex20201.herokuapp.com/pokemons/${name}`)
       .then((res) => {
-        this.setState(res.data);
+        setPokemon(res.data);
       });
-  }
+  };
 
-  render() {
-    return (
-      <div className="pokemon">
-        <img src={this.state.image_url} alt="" />
-        <div className="pokemonName">{this.state.name}</div>
-        <div className="pokemonKind">{this.state.kind}</div>
-        <div className="pokemonWeight">{this.state.weight}</div>
-        <div className="pokemonHeight">{this.state.height}</div>
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    fetchPokemon();
+  }, []);
+
+  return (
+    <div className="pokemon">
+      <img src={pokemon.image_url} alt="" />
+      <div className="pokemonName">{pokemon.name}</div>
+      <div className="pokemonKind">{pokemon.kind}</div>
+      <div className="pokemonWeight">{pokemon.weight}</div>
+      <div className="pokemonHeight">{pokemon.height}</div>
+    </div>
+  );
+};
 
 export default PokemonPage;
