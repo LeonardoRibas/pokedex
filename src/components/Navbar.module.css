@@ -1,21 +1,19 @@
 .navbar {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-rows: 60px;
+  grid-auto-flow: column; 
+  grid-auto-rows: 50px;
   align-items: center;
-  grid-gap: 20px;
-  background-color: #ffcc00;
-  justify-items: start;
-  justify-content: start;
+  justify-content: end;
 }
 
 .item {
   text-decoration: none;
+  margin-right: 20px;
   color: black;
 }
 
-#catalogLink {
-  margin-left: 20px;
+div.item {
+  user-select: none;
+  cursor: pointer;
 }
-
 

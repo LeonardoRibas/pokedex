@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import Navbar from "../components/Navbar";
+
 const LoginPage = (props) => {
   const usernameInput = React.createRef();
 
@@ -30,14 +32,17 @@ const LoginPage = (props) => {
   };
 
   return (
-    <div className="loginContainer">
-      <input
-        type="text"
-        ref={usernameInput}
-        onKeyPress={keyPressed}
-        placeholder="Username"
-      />
-    </div>
+    <>
+      <Navbar />
+      <div className="loginContainer">
+        <input
+          type="text"
+          ref={usernameInput}
+          onKeyPress={keyPressed}
+          placeholder="Username"
+        />
+      </div>
+    </>
   );
 };
 

@@ -1,16 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const history = useHistory();
+
+  function logoutAndRedirect() {
+    localStorage.setItem("user", "");
+    history.push("/");
+  }
+
   return (
     <header className={styles.navbar}>
-      <Link to="/catalog" id={styles.catalogLink} className={styles.item}>
-        Catalog
-      </Link>
-      <Link to="/" className={styles.item}>
-        Login
-      </Link>
+      {localStorage.getItem("user") ? (
+        <>
+          <Link to="/catalog" className={styles.item}>
+            Pokémons
+          </Link>
+          <Link to="/profile" className={styles.item}>
+            Meu Perfil
+          </Link>
+          <div
+            onClick={logoutAndRedirect}
+            id={styles.logout}
+            className={styles.item}
+          >
+            Sair
+          </div>
+        </>
+      ) : (
+        <Link to="/" className={styles.item}>
+          Login
+        </Link>
+      )}
     </header>
   );
 };
