@@ -41,10 +41,7 @@ const Catalog = () => {
               id={pokemon.id}
               img={pokemon.image_url}
               name={pokemon.name}
-              number={pokemon.number}
               kind={pokemon.kind}
-              height={pokemon.height}
-              weight={pokemon.weight}
             />
           ))}
         </div>
