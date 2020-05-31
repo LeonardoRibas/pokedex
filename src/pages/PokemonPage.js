@@ -53,10 +53,6 @@ const PokemonPage = (props) => {
       });
   };
 
-  function printPokemons() {
-    console.log(favoritePokemons);
-  }
-
   return (
     <div className="pokemon">
       <img src={pokemon.image_url} alt="" />
@@ -71,7 +67,6 @@ const PokemonPage = (props) => {
       ) : (
         <button onClick={() => handleFavorite(pokemon.name)}>Favoritar</button>
       )}
-      <button onClick={printPokemons}>aqui</button>
     </div>
   );
 };
