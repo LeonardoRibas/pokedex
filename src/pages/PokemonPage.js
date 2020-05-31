@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
+import Navbar from "../components/Navbar";
+
 const PokemonPage = (props) => {
   const [pokemon, setPokemon] = useState({ name: props.match.params.name });
 
@@ -54,20 +56,25 @@ const PokemonPage = (props) => {
   };
 
   return (
-    <div className="pokemon">
-      <img src={pokemon.image_url} alt="" />
-      <div className="pokemonName">{pokemon.name}</div>
-      <div className="pokemonKind">{pokemon.kind}</div>
-      <div className="pokemonWeight">{pokemon.weight}</div>
-      <div className="pokemonHeight">{pokemon.height}</div>
-      {isFavorite ? (
-        <button onClick={() => handleUnfavorite(pokemon.name)}>
-          Desfavoritar
-        </button>
-      ) : (
-        <button onClick={() => handleFavorite(pokemon.name)}>Favoritar</button>
-      )}
-    </div>
+    <>
+      <Navbar />
+      <div className="pokemon">
+        <img src={pokemon.image_url} alt="" />
+        <div className="pokemonName">{pokemon.name}</div>
+        <div className="pokemonKind">{pokemon.kind}</div>
+        <div className="pokemonWeight">{pokemon.weight}</div>
+        <div className="pokemonHeight">{pokemon.height}</div>
+        {isFavorite ? (
+          <button onClick={() => handleUnfavorite(pokemon.name)}>
+            Desfavoritar
+          </button>
+        ) : (
+          <button onClick={() => handleFavorite(pokemon.name)}>
+            Favoritar
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 
