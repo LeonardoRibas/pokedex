@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import styles from "./LoginPage.module.css";
+
 import Navbar from "../components/Navbar";
 
 const LoginPage = (props) => {
@@ -34,13 +36,19 @@ const LoginPage = (props) => {
   return (
     <>
       <Navbar />
-      <div className="loginContainer">
-        <input
-          type="text"
-          ref={usernameInput}
-          onKeyPress={keyPressed}
-          placeholder="Username"
-        />
+      <div className={styles.container}>
+        <div className={styles.imageContainer}></div>
+        <div className={styles.loginContainer}>
+          <h1 className={styles.loginTitle}>Cadastre-se ou faça Login</h1>
+
+          <input
+            type="text"
+            ref={usernameInput}
+            onKeyPress={keyPressed}
+            className={styles.loginInput}
+            placeholder="Nome de usuário"
+          />
+        </div>
       </div>
     </>
   );

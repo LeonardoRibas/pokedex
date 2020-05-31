@@ -12,13 +12,3 @@ code {
     monospace;
 }
 
-.loginContainer {
-  display: grid; 
-  justify-content: center;
-  grid-gap: 10px;
-}
-
-.loginContainer * {
-  text-align: center;
-  
-}
