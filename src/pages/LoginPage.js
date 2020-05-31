@@ -3,7 +3,7 @@ import axios from "axios";
 
 import styles from "./LoginPage.module.css";
 import Navbar from "../components/Navbar";
-import loginImage from "../assets/login.jpg";
+import loginImage from "../assets/illustrations/login.jpg";
 
 const LoginPage = (props) => {
   const usernameInput = React.createRef();
