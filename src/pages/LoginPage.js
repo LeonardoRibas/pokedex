@@ -35,7 +35,7 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <Navbar />
+      {localStorage.getItem("user") ? <Navbar /> : null}
       <div className={styles.container}>
         <div className={styles.imageContainer}>
           <img src={loginImage} alt="" />
