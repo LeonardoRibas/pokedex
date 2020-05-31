@@ -1,0 +1,21 @@
+.navbar {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-rows: 60px;
+  align-items: center;
+  grid-gap: 20px;
+  background-color: #ffcc00;
+  justify-items: start;
+  justify-content: start;
+}
+
+.item {
+  text-decoration: none;
+  color: black;
+}
+
+#catalogLink {
+  margin-left: 20px;
+}
+
+
