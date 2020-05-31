@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 
 import styles from "./LoginPage.module.css";
-
 import Navbar from "../components/Navbar";
+import loginImage from "../assets/login.jpg";
 
 const LoginPage = (props) => {
   const usernameInput = React.createRef();
@@ -37,10 +37,11 @@ const LoginPage = (props) => {
     <>
       <Navbar />
       <div className={styles.container}>
-        <div className={styles.imageContainer}></div>
+        <div className={styles.imageContainer}>
+          <img src={loginImage} alt="" />
+        </div>
         <div className={styles.loginContainer}>
           <h1 className={styles.loginTitle}>Cadastre-se ou faça Login</h1>
-
           <input
             type="text"
             ref={usernameInput}

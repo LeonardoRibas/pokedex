@@ -8,7 +8,17 @@
 }
 
 .imageContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  align-content:center;
+  align-items: center;
+  justify-content: center;  
+  justify-items: center;
+}
 
+img {
+  max-width: 100%;
 }
 
 .loginContainer {
@@ -20,12 +30,16 @@
   border: none;
   border-radius: 5px;
   padding: 20px; 
+  outline: none;
   width: 70%;
-  color: #A4A4A4;
 }
 
 .loginTitle {
 
 }
 
+.cancelButton {
+  background: red;
+  color: white;
+}
 
