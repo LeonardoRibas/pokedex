@@ -6,6 +6,8 @@ import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 import styles from "./PokemonCard.module.css";
 
+import KindRenderer from "../components/KindRenderer";
+
 const PokemonCard = (props) => {
   const history = useHistory();
 
@@ -52,7 +54,8 @@ const PokemonCard = (props) => {
     <div className={styles.card}>
       <h1>{props.name}</h1>
       <img onClick={handleClick} src={props.img} alt={props.name} />
-      <p>{props.kind}</p>
+      <KindRenderer kind={props.kind} />
+      {/* <img src={kindIcons.} /> */}
       {isFavorite ? (
         <button onClick={() => handleUnfavorite(props.name)}>
           Desfavoritar
