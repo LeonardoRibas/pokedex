@@ -1,14 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import axios from "axios";
-import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
-import PokemonCard from "../components/PokemonCard";
-import styles from "./UserProfilePage.module.css";
 
+import PokemonCard from "../components/PokemonCard";
 import Navbar from "../components/Navbar";
 
-const userName = localStorage.getItem("user");
+import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
+
+import styles from "./UserProfilePage.module.css";
 
 const UserProfilePage = () => {
+  const userName = localStorage.getItem("user");
+
   const { favoritePokemons, setFavoritePokemons } = useContext(
     FavoritePokemonContext
   );

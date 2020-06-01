@@ -1,8 +1,11 @@
 import React from "react";
+
 import { Link, useHistory } from "react-router-dom";
+
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const userName = localStorage.getItem("user");
   const history = useHistory();
 
   function logoutAndRedirect() {
@@ -12,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header className={styles.navbar}>
-      {localStorage.getItem("user") ? (
+      {userName ? (
         <>
           <Link to="/catalog" className={styles.item}>
             Pokémons

@@ -5,7 +5,6 @@
   background-color: #e5e5e5;
 }
 
-
 .pokemonWater {
   max-width: 96px;
   background-color: #73c3e2;
@@ -113,7 +112,6 @@
   background-color: #ffa298;
   border-radius: 13px 0 0 13px;
 }
-
 
 .pokemonDescription {
   display: flex;
