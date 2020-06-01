@@ -53,9 +53,32 @@ const PokemonCard = (props) => {
       });
   };
 
+  const mainType = props.kind.split(";")[0];
+
+  const typeClasses = {
+    water: styles.pokemonWater,
+    fire: styles.pokemonFire,
+    grass: styles.pokemonGrass,
+    bug: styles.pokemonBug,
+    poison: styles.pokemonPoison,
+    flying: styles.pokemonFlying,
+    normal: styles.pokemonNormal,
+    electric: styles.pokemonElectric,
+    ground: styles.pokemonGround,
+    fighting: styles.pokemonFighting,
+    rock: styles.pokemonRock,
+    ghost: styles.pokemonGhost,
+    psychic: styles.pokemonPsychic,
+    fairy: styles.pokemonFairy,
+    ice: styles.pokemonIce,
+    dragon: styles.pokemonDragon,
+    steel: styles.pokemonSteel,
+    dark: styles.pokemonDark,
+  };
+
   return (
     <div className={styles.cardContainer}>
-      <div className={styles.pokemonAvatar}>
+      <div className={typeClasses[mainType]}>
         <img onClick={handleClick} src={props.img} alt={props.name} />
       </div>
       <div className={styles.pokemonDescription}>

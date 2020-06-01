@@ -5,11 +5,115 @@
   background-color: #e5e5e5;
 }
 
-.pokemonAvatar {
+
+.pokemonWater {
   max-width: 96px;
-  background-color: #b6b6b6;
+  background-color: #73c3e2;
   border-radius: 13px 0 0 13px;
 }
+
+.pokemonFire {
+  max-width: 96px;
+  background-color: #f2975c;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonGrass {
+  max-width: 96px;
+  background-color: #7fd47d;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonBug {
+  max-width: 96px;
+  background-color: #8ec340;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonPoison {
+  max-width: 96px;
+  background-color: #c95dd2;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonFlying {
+  max-width: 96px;
+  background-color: #8ea5da;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonNormal {
+  max-width: 96px;
+  background-color: #b3bcc4;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonElectric {
+  max-width: 96px;
+  background-color: #f4be4b;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonGround {
+  max-width: 96px;
+  background-color: #d39a6d;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonFighting {
+  max-width: 96px;
+  background-color: #d75d74;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonRock {
+  max-width: 96px;
+  background-color: #d5cc96;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonIce {
+  max-width: 96px;
+  background-color: #72cdbf;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonDragon {
+  max-width: 96px;
+  background-color: #0c7fb9;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonDark {
+  max-width: 96px;
+  background-color: #9c7fcb;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonSteel {
+  max-width: 96px;
+  background-color: #68abac;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonGhost {
+  max-width: 96px;
+  background-color: #7b6fd3;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonFairy {
+  max-width: 96px;
+  background-color: #ee88e2;
+  border-radius: 13px 0 0 13px;
+}
+
+.pokemonPsychic {
+  max-width: 96px;
+  background-color: #ffa298;
+  border-radius: 13px 0 0 13px;
+}
+
 
 .pokemonDescription {
   display: flex;
