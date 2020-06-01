@@ -35,13 +35,16 @@ const LoginPage = (props) => {
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.imageContainer}>
-          <img src={loginImage} alt="" />
+    <div className={styles.container}>
+      <div className={styles.loginContainer}>
+        <div>
+          <img className={styles.loginIllustration} src={loginImage} alt="" />
         </div>
-        <div className={styles.loginContainer}>
-          <h1 className={styles.loginTitle}>Cadastre-se ou faça Login</h1>
+        <div className={styles.loginActionBox}>
+          <h1 className={styles.loginTitle}>
+            Cadastre-se ou
+            <br /> faça Login
+          </h1>
           <input
             type="text"
             ref={usernameInput}
@@ -51,7 +54,7 @@ const LoginPage = (props) => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
