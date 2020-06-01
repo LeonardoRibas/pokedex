@@ -1,49 +1,41 @@
 .container {
-  width: 85%;
-  border-radius: 10px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 400px;
-  grid-template-areas: 
-    "image login";
-    background-color: #fe9e86;
-  margin-top: 170px;
-}
-
-.imageContainer {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 100%;
-  align-content:center;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
   align-items: center;
-  justify-content: center;  
-  justify-items: center;
-}
-
-img {
-  max-width: 100%;
 }
 
 .loginContainer {
-  display: grid;
-  align-content: center;
+  display: flex;
+  align-items: center;
+  width: 1000px;
+  height: 500px;
+  background-color: #fe9e86;
+  border-radius: 15px;
+  padding: 0 90px;
+  box-sizing: border-box;
 }
 
-.loginInput {
-  border: none;
-  border-radius: 5px;
-  padding: 20px; 
-  outline: none;
-  width: 70%;
+.loginIllustration {
+  width: 500px;
+}
+
+.loginActionBox {
+  margin-bottom: 100px;
 }
 
 .loginTitle {
-
-}
-
-.cancelButton {
-  background: red;
+  font-weight: 700;
+  margin-bottom: 50px;
   color: white;
 }
 
+.loginInput {
+  width: 230px;
+  height: 35px;
+  border-radius: 5px;
+  border: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
