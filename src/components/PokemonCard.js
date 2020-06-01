@@ -6,6 +6,11 @@ import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 import styles from "./PokemonCard.module.css";
 
+import KindRenderer from "../components/KindRenderer";
+
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
+
 const PokemonCard = (props) => {
   const history = useHistory();
 
@@ -49,17 +54,27 @@ const PokemonCard = (props) => {
   };
 
   return (
-    <div className={styles.card}>
-      <h1>{props.name}</h1>
-      <img onClick={handleClick} src={props.img} alt={props.name} />
-      <p>{props.kind}</p>
-      {isFavorite ? (
-        <button onClick={() => handleUnfavorite(props.name)}>
-          Desfavoritar
-        </button>
-      ) : (
-        <button onClick={() => handleFavorite(props.name)}>Favoritar</button>
-      )}
+    <div className={styles.cardContainer}>
+      <div className={styles.pokemonAvatar}>
+        <img onClick={handleClick} src={props.img} alt={props.name} />
+      </div>
+      <div className={styles.pokemonDescription}>
+        <span className={styles.pokemonName}>{props.name}</span>
+
+        <KindRenderer kind={props.kind} />
+        {isFavorite ? (
+          <div className={styles.Button}>
+            <FavoriteTwoToneIcon
+              className={styles.unfavoriteButton}
+              onClick={() => handleUnfavorite(props.name)}
+            />
+          </div>
+        ) : (
+          <div className={styles.Button}>
+            <FavoriteTwoToneIcon onClick={() => handleFavorite(props.name)} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,9 @@
+.kindContainer {
+  display: flex;
+}
+
+.kindIcon {
+  max-width: 24px;
+  max-height: 24px;
+  margin: 5px;
+}
