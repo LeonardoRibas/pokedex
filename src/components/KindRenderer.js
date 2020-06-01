@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import styles from "./KindRenderer.module.css";
+
 const KindRenderer = (props) => {
   const [kinds, setKind] = useState([]);
 
@@ -8,9 +10,12 @@ const KindRenderer = (props) => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.kindContainer}>
       {kinds.map((kind) => (
-        <img src={require(`../assets/icons/${kind}-kind-icon.png`)} />
+        <img
+          className={styles.kindIcon}
+          src={require(`../assets/icons/${kind}-kind-icon.png`)}
+        />
       ))}
     </div>
   );
