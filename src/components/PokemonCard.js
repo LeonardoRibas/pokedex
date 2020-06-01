@@ -1,37 +1,27 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-
-import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
-
-import styles from "./PokemonCard.module.css";
 
 import KindRenderer from "../components/KindRenderer";
 
-import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
+
+import { useHistory } from "react-router-dom";
 import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+
+import styles from "./PokemonCard.module.css";
 
 const PokemonCard = (props) => {
+  const userName = localStorage.getItem("user");
   const history = useHistory();
 
   const { favoritePokemons, setFavoritePokemons } = useContext(
     FavoritePokemonContext
   );
 
-  function handleClick(e) {
-    history.push(`/pokemon/${props.name}`);
-  }
-
-  const userName = localStorage.getItem("user");
-
   const [isFavorite, setIsFavorite] = useState();
 
-  useEffect(() => {
-    const isPokemonInFavorites = favoritePokemons.some(
-      (favPokemon) => favPokemon.name === props.name
-    );
-    setIsFavorite(isPokemonInFavorites);
-  }, [favoritePokemons]);
+  const handleClick = () => history.push(`/pokemon/${props.name}`);
 
   const handleFavorite = (pokemonName) => {
     axios
@@ -52,6 +42,13 @@ const PokemonCard = (props) => {
         setFavoritePokemons(res.data.pokemons);
       });
   };
+
+  useEffect(() => {
+    const isPokemonInFavorites = favoritePokemons.some(
+      (favPokemon) => favPokemon.name === props.name
+    );
+    setIsFavorite(isPokemonInFavorites);
+  }, [favoritePokemons]);
 
   const mainType = props.kind.split(";")[0];
 

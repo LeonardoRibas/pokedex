@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 
-import styles from "./LoginPage.module.css";
 import Navbar from "../components/Navbar";
+
 import loginImage from "../assets/illustrations/login.jpg";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = (props) => {
   const usernameInput = React.createRef();
@@ -35,7 +36,6 @@ const LoginPage = (props) => {
 
   return (
     <>
-      {localStorage.getItem("user") ? <Navbar /> : null}
       <div className={styles.container}>
         <div className={styles.imageContainer}>
           <img src={loginImage} alt="" />
