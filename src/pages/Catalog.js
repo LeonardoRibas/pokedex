@@ -6,6 +6,9 @@ import Navbar from "../components/Navbar";
 
 import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+
 import styles from "./Catalog.module.css";
 
 const Catalog = () => {
@@ -41,9 +44,15 @@ const Catalog = () => {
   }, [page]);
 
   return (
-    <>
-      <Navbar />
-      <div className={styles.container}>
+    <div className={styles.container}>
+      <div className={styles.navigation}>
+        <h1>Pokémons</h1>
+        <Navbar />
+      </div>
+      <div className={styles.catalogContainer}>
+        <button className={styles.navigateButton} onClick={handlePreviousPage}>
+          <NavigateBeforeIcon />
+        </button>
         <div className={styles.catalog}>
           {pokemons.map((pokemon) => (
             <PokemonCard
@@ -55,12 +64,12 @@ const Catalog = () => {
             />
           ))}
         </div>
-        <div className={styles.buttons}>
-          <button onClick={handlePreviousPage}>Página anterior</button>
-          <button onClick={handleNextPage}>Próxima página</button>
-        </div>
+
+        <button className={styles.navigateButton} onClick={handleNextPage}>
+          <NavigateNextIcon />
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 
