@@ -6,7 +6,7 @@ import KindRenderer from "../components/KindRenderer";
 import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
 
 import { useHistory } from "react-router-dom";
-import FavoriteTwoToneIcon from "@material-ui/icons/FavoriteTwoTone";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 
 import styles from "./PokemonCard.module.css";
@@ -84,14 +84,14 @@ const PokemonCard = (props) => {
         <KindRenderer kind={props.kind} />
         {isFavorite ? (
           <div className={styles.Button}>
-            <FavoriteTwoToneIcon
+            <FavoriteIcon
               className={styles.unfavoriteButton}
               onClick={() => handleUnfavorite(props.name)}
             />
           </div>
         ) : (
           <div className={styles.Button}>
-            <FavoriteTwoToneIcon onClick={() => handleFavorite(props.name)} />
+            <FavoriteBorderIcon onClick={() => handleFavorite(props.name)} />
           </div>
         )}
       </div>

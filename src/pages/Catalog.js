@@ -46,9 +46,9 @@ const Catalog = () => {
   return (
     <div className={styles.container}>
       <div className={styles.navigation}>
-        <h1>Pokémons</h1>
         <Navbar />
       </div>
+      <h1 className={styles.title}>Pokémons</h1>
       <div className={styles.catalogContainer}>
         <button className={styles.navigateButton} onClick={handlePreviousPage}>
           <NavigateBeforeIcon />
