@@ -12,10 +12,13 @@ const KindRenderer = (props) => {
   return (
     <div className={styles.kindContainer}>
       {kinds.map((kind) => (
-        <img
-          className={styles.kindIcon}
-          src={require(`../assets/icons/${kind}-kind-icon.png`)}
-        />
+        <div className={styles.kindElement}>
+          <img
+            className={props.big ? styles.bigKindIcon : styles.kindIcon}
+            src={require(`../assets/icons/${kind}-kind-icon.png`)}
+          />
+          {props.big && <span>{kind}</span>}
+        </div>
       ))}
     </div>
   );
