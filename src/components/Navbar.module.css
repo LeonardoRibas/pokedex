@@ -1,9 +1,10 @@
 .navbar {
   display: grid;
-  grid-auto-flow: column; 
+  grid-auto-flow: column;
   grid-auto-rows: 50px;
   align-items: center;
   justify-content: end;
+  margin-left: auto;
 }
 
 .item {
@@ -16,4 +17,3 @@ div.item {
   user-select: none;
   cursor: pointer;
 }
-
