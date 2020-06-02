@@ -25,6 +25,10 @@
   box-sizing: border-box;
 }
 
+.title {
+  margin-bottom: 32px;
+}
+
 .navigateButton {
   display: flex;
   align-items: center;
