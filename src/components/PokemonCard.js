@@ -48,7 +48,7 @@ const PokemonCard = (props) => {
       (favPokemon) => favPokemon.name === props.name
     );
     setIsFavorite(isPokemonInFavorites);
-  }, [favoritePokemons]);
+  }, [favoritePokemons, props.name]);
 
   const mainType = props.kind.split(";")[0];
 

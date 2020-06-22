@@ -7,13 +7,14 @@ const KindRenderer = (props) => {
 
   useEffect(() => {
     setKind(props.kind.split(";"));
-  }, []);
+  }, [props.kind]);
 
   return (
     <div className={styles.kindContainer}>
-      {kinds.map((kind) => (
-        <div className={styles.kindElement}>
+      {kinds.map((kind, index) => (
+        <div key={index} className={styles.kindElement}>
           <img
+            alt="sub"
             className={props.big ? styles.bigKindIcon : styles.kindIcon}
             src={require(`../assets/icons/${kind}-kind-icon.png`)}
           />

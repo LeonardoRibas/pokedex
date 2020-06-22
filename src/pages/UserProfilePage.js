@@ -22,7 +22,7 @@ const UserProfilePage = () => {
       .then((res) => {
         setFavoritePokemons(res.data.pokemons);
       });
-  }, [favoritePokemons]);
+  }, [favoritePokemons, setFavoritePokemons, userName]);
 
   return (
     <>

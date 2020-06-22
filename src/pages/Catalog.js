@@ -12,9 +12,7 @@ import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import styles from "./Catalog.module.css";
 
 const Catalog = () => {
-  const { favoritePokemons, setFavoritePokemons } = useContext(
-    FavoritePokemonContext
-  );
+  const { setFavoritePokemons } = useContext(FavoritePokemonContext);
 
   const [pokemons, setPokemon] = useState([]);
   const userName = localStorage.getItem("user");
@@ -33,7 +31,7 @@ const Catalog = () => {
       .then((res) => {
         setFavoritePokemons(res.data.pokemons);
       });
-  }, []);
+  }, [setFavoritePokemons, userName]);
 
   useEffect(() => {
     axios

@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 
-import Navbar from "../components/Navbar";
-
 import loginImage from "../assets/illustrations/login.jpg";
 import styles from "./LoginPage.module.css";
 

@@ -24,25 +24,24 @@ const PokemonPage = (props) => {
 
   const [isFavorite, setIsFavorite] = useState();
 
-  const fetchPokemon = () => {
-    let name = props.match.params.name;
-    axios
-      .get(`https://pokedex20201.herokuapp.com/pokemons/${name}`)
-      .then((res) => {
-        setPokemon(res.data);
-      });
-  };
-
   useEffect(() => {
+    const fetchPokemon = () => {
+      let name = props.match.params.name;
+      axios
+        .get(`https://pokedex20201.herokuapp.com/pokemons/${name}`)
+        .then((res) => {
+          setPokemon(res.data);
+        });
+    };
     fetchPokemon();
-  }, []);
+  }, [props.match.params.name]);
 
   useEffect(() => {
     const isPokemonInFavorites = favoritePokemons.some(
       (favPokemon) => favPokemon.name === pokemon.name
     );
     setIsFavorite(isPokemonInFavorites);
-  }, [favoritePokemons]);
+  }, [favoritePokemons, pokemon.name]);
 
   const handleFavorite = (pokemonName) => {
     axios
