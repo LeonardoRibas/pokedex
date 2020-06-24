@@ -3,11 +3,9 @@ import axios from "axios";
 
 import PokemonCard from "../components/PokemonCard";
 import Navbar from "../components/Navbar";
+import Pagination from "@material-ui/lab/Pagination";
 
 import { FavoritePokemonContext } from "../context/FavoritePokemonContext";
-
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 
 import styles from "./Catalog.module.css";
 
@@ -18,11 +16,8 @@ const Catalog = () => {
   const userName = localStorage.getItem("user");
   const [page, setPage] = useState(1);
 
-  const handleNextPage = () => setPage(page + 1);
-  const handlePreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
+  const handlePageChange = (event, value) => {
+    setPage(value);
   };
 
   useEffect(() => {
@@ -48,9 +43,6 @@ const Catalog = () => {
       </div>
       <h1 className={styles.title}>Pokémons</h1>
       <div className={styles.catalogContainer}>
-        <button className={styles.navigateButton} onClick={handlePreviousPage}>
-          <NavigateBeforeIcon />
-        </button>
         <div className={styles.catalog}>
           {pokemons.map((pokemon) => (
             <PokemonCard
@@ -62,11 +54,15 @@ const Catalog = () => {
             />
           ))}
         </div>
-
-        <button className={styles.navigateButton} onClick={handleNextPage}>
-          <NavigateNextIcon />
-        </button>
       </div>
+      <Pagination
+        className={styles.pagination}
+        count={33}
+        size="large"
+        shape="rounded"
+        siblingCount={2}
+        onChange={handlePageChange}
+      />
     </div>
   );
 };
