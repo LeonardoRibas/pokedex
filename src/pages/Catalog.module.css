@@ -41,3 +41,7 @@
 .navigateButton :hover {
   cursor: pointer;
 }
+
+.pagination {
+  margin: 30px;
+}
