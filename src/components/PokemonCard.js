@@ -76,7 +76,12 @@ const PokemonCard = (props) => {
   return (
     <div className={styles.cardContainer}>
       <div className={typeClasses[mainType]}>
-        <img onClick={handleClick} src={props.img} alt={props.name} />
+        <img
+          className={styles.pokemonImage}
+          onClick={handleClick}
+          src={props.img}
+          alt={props.name}
+        />
       </div>
       <div className={styles.pokemonDescription}>
         <span className={styles.pokemonName}>{props.name}</span>
